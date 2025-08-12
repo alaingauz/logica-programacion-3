@@ -1,18 +1,17 @@
 function calcularFactorial(n) {
-  // El factorial de 0 es 1.
   if (n === 0) {
     return 1;
   }
 
   let resultado = 1;
   for (let i = n; i > 1; i--) {
-    resultado *= i; // es lo mismo que resultado = resultado * i;
+    resultado *= i; 
   }
   return resultado;
 }
 
-
 function iniciarCalculo() {
+  const contenedorResultado = document.getElementById("resultado");
   let numeroValido = false;
   let numero;
 
@@ -20,8 +19,9 @@ function iniciarCalculo() {
     const entradaUsuario = prompt("Por favor, introduce un número entero para calcular su factorial:");
 
     if (entradaUsuario === null) {
+      contenedorResultado.innerHTML = "<p>Operación cancelada por el usuario.</p>";
       console.log("Operación cancelada por el usuario.");
-      return; // Sale de la función iniciarCalculo
+      return;
     }
     
     const numeroTemporal = parseInt(entradaUsuario);
@@ -36,7 +36,9 @@ function iniciarCalculo() {
 
   const factorial = calcularFactorial(numero);
 
+  contenedorResultado.innerHTML = `El factorial de <strong>${numero}</strong> es: <strong>${factorial}</strong>`;
+
   console.log(`El factorial de ${numero} es: ${factorial}`);
-  alert(`El factorial de ${numero} es: ${factorial}. \n(Resultado también en la consola)`);
 }
+
 iniciarCalculo();
