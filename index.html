@@ -1,40 +1,90 @@
+¡Claro que sí! Modernizar la interfaz con un campo de entrada y un botón es una excelente idea. Hace que la página sea mucho más interactiva y fácil de usar.
+
+Aquí tienes los archivos actualizados. La lógica del cálculo del factorial no cambia, pero la forma en que interactuamos con el usuario es completamente diferente, ya que ahora se basa en eventos del DOM (hacer clic en un botón).
+
+## 📄 index.html (Modificado)
+Ahora incluimos un input para que el usuario escriba el número y un button para iniciar el cálculo. También he añadido un poco más de estilo para que se vea mejor y un estilo específico para los mensajes de error.
+
+HTML
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cálculo de Factorial</title>
+    <title>Cálculo de Factorial Interactivo</title>
     <style>
-        /* Estilos opcionales para que se vea mejor */
         body {
-            font-family: sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
-            background-color: #f4f4f9;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .container {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+        h1 {
+            color: #1a2b4d;
+            margin-bottom: 1.5rem;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box; /* Importante para que el padding no afecte el ancho */
+            font-size: 1rem;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
         }
         #resultado {
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 8px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            font-size: 1.2em;
-            text-align: center;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            font-size: 1.2rem;
+            min-height: 2em; /* Para evitar saltos en la interfaz */
         }
-        strong {
-            color: #007bff;
+        /* Estilo para mensajes de error */
+        .error {
+            color: #d93025;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1>Lógica de Programación 3: Cálculo de Factorial</h1>
-    
-    <div id="resultado">
-        <p>Por favor, introduce un número en la ventana que aparecerá para comenzar.</p>
+
+    <div class="container">
+        <h1>Cálculo de Factorial</h1>
+
+        <input type="number" id="numeroInput" placeholder="Introduce un número entero positivo">
+
+        <button id="calcularBtn">Calcular</button>
+
+        <div id="resultado"></div>
     </div>
 
     <script src="script.js"></script>
