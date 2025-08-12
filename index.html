@@ -1,13 +1,50 @@
+¡Por supuesto! Aquí tienes el código modificado para que los resultados se muestren directamente en la página HTML en lugar de solo en la consola o en un alert.
+
+He realizado cambios en ambos archivos, index.html para añadir un lugar donde mostrar el resultado, y script.js para que escriba en ese nuevo lugar.
+
+## 📄 index.html (Modificado)
+Añadimos un div con el id="resultado" que servirá como contenedor para mostrar el texto final.
+
+HTML
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cálculo de Factorial</title>
+    <style>
+        /* Estilos opcionales para que se vea mejor */
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        #resultado {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            font-size: 1.2em;
+            text-align: center;
+        }
+        strong {
+            color: #007bff;
+        }
+    </style>
 </head>
 <body>
     <h1>Lógica de Programación 3: Cálculo de Factorial</h1>
-    <p>Por favor, abre la consola del desarrollador (Ctrl+Shift+I) para ver el resultado.</p>
+    
+    <div id="resultado">
+        <p>Por favor, introduce un número en la ventana que aparecerá para comenzar.</p>
+    </div>
 
     <script src="script.js"></script>
 </body>
